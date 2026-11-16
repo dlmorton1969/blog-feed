@@ -1,7 +1,7 @@
 # blog-feed — daily automatic blog for DavidMortonSoldIt.com
 
 This repo hosts the RSS feed that David Morton's Lofty website imports every day.
-Lofty's RSS Aggregator reads `https://dlmorton1969.github.io/blog-feed/feed.xml` once a day at
+Lofty's RSS Aggregator reads `https://dlmorton1969.github.io/blog-feed/rss.xml` (feed.xml is an identical copy) once a day at
 7:00 AM Eastern and publishes new items live on https://www.DavidMortonSoldIt.com.
 Anything committed to `posts/` will be PUBLIC and LIVE on his website the next morning, with no human review.
 
@@ -28,7 +28,7 @@ He represents buyers and sellers, with a focus on luxury homes and personalized 
    Never invent or estimate a statistic. If current numbers can't be found, write a post that doesn't need them.
 3. Length 700–1,000 words. Title under 60 characters including the town/area. Meta description under
    155 characters. Body uses <h2> subheads, <p>, <ul>/<li>, <a> only (no <h1>, no inline styles, no scripts,
-   no images). Include a short FAQ (2–3 questions as <h3> + <p>). Close with a call to action:
+   no <img> tags — the photo goes in the header instead). Include a short FAQ (2–3 questions as <h3> + <p>). Close with a call to action:
    call or text 980-350-8686, visit <a href="https://www.DavidMortonSoldIt.com">DavidMortonSoldIt.com</a>,
    or get a free home value at <a href="https://www.DavidMortonSoldIt.com/evaluation">DavidMortonSoldIt.com/evaluation</a>.
    Last line: <p><em>David Morton Real Estate by Real Broker, LLC</em></p>
@@ -37,8 +37,19 @@ He represents buyers and sellers, with a focus on luxury homes and personalized 
    religion, national origin, sex, familial status ("perfect for families", "kid-friendly"), disability,
    and no "safe", "exclusive", "family neighborhood" or similar. No steering. Schools: names and district
    only, link the district site, no ranking or "best schools" claims.
-5. Self-check before committing: every number matches its source; only 980-350-8686 appears; Fair Housing
+5. Photo (required on every post): add `image:`, `image_alt:` and `image_credit:` header lines. The builder places
+   the photo at the top of the post and in the feed; Lofty uses it as the featured/social image.
+   - Use a free-for-commercial-use stock photo: Burst (shopify.com/stock-photos — direct URL form
+     `https://burst.shopifycdn.com/photos/<slug>.jpg?width=1200&format=pjpg&exif=0&iptc=0`, take it from the
+     photo page's og:image) or Unsplash (direct images.unsplash.com URL from the photo page). Confirm the
+     page states a free commercial license, and credit the photographer ("Photo by NAME on Burst/Unsplash").
+   - Match the topic and look like the Carolinas (brick or siding homes, porches, wooded lots, green lawns,
+     a downtown streetscape, a home interior). Avoid snow scenes, palm trees, mountains or foreign cities.
+   - Never use photos of identifiable people, real listings, other agents' or brokerages' photos, logos or
+     watermarked images, Google/Zillow/MLS images, or AI images that pretend to be a real Waxhaw place.
+   - Never reuse the same photo as one of the last 10 posts. alt text describes the photo plainly (no people).
+6. Self-check before committing: every number matches its source; only 980-350-8686 appears; Fair Housing
    rules pass; title/description lengths; brokerage line present. If anything fails, fix it. If you can't
    produce a post that passes, commit nothing and tell David.
-6. Save as `posts/<today's date ET>-<slug>.html`, run `python3 build_feed.py`, commit
+7. Save as `posts/<today's date ET>-<slug>.html`, run `python3 build_feed.py`, commit
    ("Post: <title>") and push to `main`.

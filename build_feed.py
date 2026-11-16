@@ -8,6 +8,9 @@ title: Waxhaw Market Update: November 2026
 description: Under-155-character meta description.
 date: 2026-11-17
 tags: Waxhaw, Market Update, Union County
+image: https://burst.shopifycdn.com/photos/example.jpg?width=1200
+image_alt: Short description of the photo (no people)
+image_credit: Photo by Jane Doe on Burst   (optional)
 -->
 <h2>...</h2><p>...</p>   (the post body as HTML)
 
@@ -55,6 +58,13 @@ def parse(path: pathlib.Path) -> dict:
     meta["body"] = text[m.end():].strip()
     meta["tags"] = [t.strip() for t in meta.get("tags", "").split(",") if t.strip()]
     meta["url"] = f"{SITE_URL}/posts/{path.stem}.html"
+    img = meta.get("image", "")
+    if img:
+        alt = html.escape(meta.get("image_alt", meta["title"]))
+        figure = f'<p><img src="{html.escape(img)}" alt="{alt}"></p>'
+        if meta.get("image_credit"):
+            figure += f'\n<p><small>{html.escape(meta["image_credit"])}</small></p>'
+        meta["body"] = figure + "\n" + meta["body"]
     return meta
 
 
@@ -85,20 +95,27 @@ def main() -> None:
             encoding="utf-8")
         cats = "".join(f"\n      <category>{html.escape(t)}</category>" for t in p["tags"])
         body = p["body"].replace("]]>", "]]]]><![CDATA[>")
+        media = ""
+        if p.get("image"):
+            u = html.escape(p["image"])
+            media = (f'\n      <enclosure url="{u}" type="image/jpeg" length="0"/>'
+                     f'\n      <media:content url="{u}" medium="image" type="image/jpeg"/>'
+                     f'\n      <media:thumbnail url="{u}"/>')
         items.append(f"""    <item>
       <title>{html.escape(p['title'])}</title>
       <link>{p['url']}</link>
       <guid isPermaLink="false">{p['slug']}</guid>
       <pubDate>{format_datetime(p['published'])}</pubDate>
       <dc:creator>{AUTHOR}</dc:creator>
-      <description>{html.escape(p['description'])}</description>{cats}
+      <description>{html.escape(p['description'])}</description>{cats}{media}
       <content:encoded><![CDATA[{body}]]></content:encoded>
     </item>""")
 
     now = format_datetime(dt.datetime.now(ET))
     feed = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>{FEED_TITLE}</title>
     <link>{HOME}</link>
@@ -110,7 +127,9 @@ def main() -> None:
   </channel>
 </rss>
 """
+    # rss.xml is the address Lofty uses; feed.xml is kept as an identical copy.
     (out_dir / "feed.xml").write_text(feed, encoding="utf-8")
+    (out_dir / "rss.xml").write_text(feed.replace(f"{SITE_URL}/feed.xml", f"{SITE_URL}/rss.xml"), encoding="utf-8")
 
     listing = "\n".join(
         f'<li><a href="posts/{p["slug"]}.html">{html.escape(p["title"])}</a> '
