@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>David Morton Real Estate Blog</title>
+    <link>https://www.DavidMortonSoldIt.com</link>
+    <atom:link href="https://dlmorton1969.github.io/blog-feed/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Waxhaw and Greater Charlotte real estate news, neighborhood guides, and buyer and seller tips from David Morton Real Estate by Real Broker, LLC.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Nov 2026 16:49:35 -0500</lastBuildDate>
+
+  </channel>
+</rss>
