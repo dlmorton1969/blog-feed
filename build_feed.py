@@ -36,6 +36,11 @@ AUTHOR = "David L. Morton"
 MAX_ITEMS = 30
 ET = ZoneInfo("America/New_York")
 
+AUTHOR_BOX = f"""<hr>
+<p><img src="{SITE_URL}/brand/logo-gold-600.png" alt="David Morton Real Estate logo" width="180"></p>
+<p><img src="{SITE_URL}/brand/headshot.jpg" alt="David L. Morton, Realtor" width="140"></p>
+<p><strong>About David Morton</strong><br>David L. Morton is a Realtor&reg;, real estate broker and owner of David Morton Real Estate by Real Broker, LLC. He represents buyers and sellers across Waxhaw and Greater Charlotte, with a focus on luxury homes and personalized service. Call or text <a href="tel:9803508686">980-350-8686</a> or visit <a href="{HOME}">DavidMortonSoldIt.com</a>.</p>"""
+
 HEADER_RE = re.compile(r"\A\s*<!--(.*?)-->\s*", re.S)
 
 
@@ -59,12 +64,30 @@ def parse(path: pathlib.Path) -> dict:
     meta["tags"] = [t.strip() for t in meta.get("tags", "").split(",") if t.strip()]
     meta["url"] = f"{SITE_URL}/posts/{path.stem}.html"
     img = meta.get("image", "")
+    photo = ""
     if img:
         alt = html.escape(meta.get("image_alt", meta["title"]))
-        figure = f'<p><img src="{html.escape(img)}" alt="{alt}"></p>'
+        photo = f'<p><img src="{html.escape(img)}" alt="{alt}"></p>'
         if meta.get("image_credit"):
-            figure += f'\n<p><small>{html.escape(meta["image_credit"])}</small></p>'
-        meta["body"] = figure + "\n" + meta["body"]
+            photo += f'\n<p><small>{html.escape(meta["image_credit"])}</small></p>'
+    card = ROOT / "docs" / "cards" / f"{path.stem}.jpg"
+    if card.exists():
+        # Branded card (make_card.py) is the featured image; the stock photo moves
+        # below the first paragraph.
+        meta["image"] = f"{SITE_URL}/cards/{path.stem}.jpg?v={int(card.stat().st_mtime)}"
+        top = f'<p><img src="{html.escape(meta["image"])}" alt="{html.escape(meta["title"])}"></p>'
+        body = meta["body"]
+        if photo:
+            cut = body.find("</p>")
+            body = (body[:cut + 4] + "\n" + photo + body[cut + 4:]) if cut != -1 else photo + "\n" + body
+        meta["body"] = top + "\n" + body
+    elif photo:
+        meta["body"] = photo + "\n" + meta["body"]
+    # About-the-author box with logo and headshot, just above the brokerage line.
+    firm = "<p><em>David Morton Real Estate by Real Broker, LLC</em></p>"
+    body = meta["body"]
+    i = body.rfind(firm)
+    meta["body"] = (body[:i] + AUTHOR_BOX + "\n" + body[i:]) if i != -1 else body + "\n" + AUTHOR_BOX
     return meta
 
 
@@ -76,7 +99,7 @@ def page(title: str, description: str, body: str) -> str:
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(description)}">
 <style>body{{font-family:Georgia,serif;max-width:760px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#222}}
-a{{color:#0b4f8a}} h1{{line-height:1.2}}</style></head>
+a{{color:#0b4f8a}} h1{{line-height:1.2}} img{{max-width:100%;height:auto}}</style></head>
 <body>{body}
 <hr><p>Official blog: <a href="{HOME}">DavidMortonSoldIt.com</a></p></body></html>
 """

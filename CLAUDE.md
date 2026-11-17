@@ -48,8 +48,16 @@ He represents buyers and sellers, with a focus on luxury homes and personalized 
    - Never use photos of identifiable people, real listings, other agents' or brokerages' photos, logos or
      watermarked images, Google/Zillow/MLS images, or AI images that pretend to be a real Waxhaw place.
    - Never reuse the same photo as one of the last 10 posts. alt text describes the photo plainly (no people).
+5b. Branding (automatic): after saving the post, run `python3 make_card.py posts/<file>.html`. It renders
+   `docs/cards/<slug>.jpg`, a navy-and-gold 1200x630 card with David's logo, the post title, his headshot,
+   980-350-8686 and the brokerage name. The builder uses that card as the featured image (top of post, RSS
+   enclosure, Lofty thumbnail), moves the stock photo below the first paragraph, and adds an "About David Morton"
+   box with logo and headshot above the brokerage line. The card label is "<first tag> · <second tag>", so put
+   the town first and the category second in `tags:` (or set `card_label:`). Look at the rendered card before
+   committing. Brand assets live in `docs/brand/` (logo-gold.png, logo-gold-600.png, headshot.jpg) — never alter them.
+   Only if you could actually view the stock photo may it be used; if image hosts are blocked, say so in the report.
 6. Self-check before committing: every number matches its source; only 980-350-8686 appears; Fair Housing
    rules pass; title/description lengths; brokerage line present. If anything fails, fix it. If you can't
    produce a post that passes, commit nothing and tell David.
-7. Save as `posts/<today's date ET>-<slug>.html`, run `python3 build_feed.py`, commit
+7. Save as `posts/<today's date ET>-<slug>.html`, run `python3 make_card.py` on it, then `python3 build_feed.py`, commit
    ("Post: <title>") and push to `main`.
