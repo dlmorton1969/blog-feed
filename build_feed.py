@@ -127,6 +127,31 @@ def main() -> None:
   </channel>
 </rss>
 """
+    # simple.xml: plain RSS 2.0 (no extra namespaces) for maximum compatibility.
+    simple_items = []
+    for p in posts[:MAX_ITEMS]:
+        enc = (f'\n      <enclosure url="{html.escape(p["image"])}" type="image/jpeg" length="0"/>'
+               if p.get("image") else "")
+        simple_items.append(f"""    <item>
+      <title>{html.escape(p['title'])}</title>
+      <link>{p['url']}</link>
+      <guid isPermaLink="true">{p['url']}</guid>
+      <pubDate>{format_datetime(p['published'])}</pubDate>
+      <description>{html.escape(p['body'])}</description>{enc}
+    </item>""")
+    simple = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{FEED_TITLE}</title>
+    <link>{SITE_URL}/</link>
+    <description>{html.escape(FEED_DESC)}</description>
+    <language>en-us</language>
+    <lastBuildDate>{now}</lastBuildDate>
+{chr(10).join(simple_items)}
+  </channel>
+</rss>
+"""
+    (out_dir / "simple.xml").write_text(simple, encoding="utf-8")
     # rss.xml is the address Lofty uses; feed.xml is kept as an identical copy.
     (out_dir / "feed.xml").write_text(feed, encoding="utf-8")
     (out_dir / "rss.xml").write_text(feed.replace(f"{SITE_URL}/feed.xml", f"{SITE_URL}/rss.xml"), encoding="utf-8")
