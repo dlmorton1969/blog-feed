@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "David Morton Real Estate by Real Broker, LLC",
+  "alternateName": "David Morton Real Estate",
+  "url": "https://www.davidmortonsoldit.com/",
+  "telephone": "+1-704-345-7218",
+  "email": "David@DavidLMorton.com",
+  "image": "https://dlmorton1969.github.io/blog-feed/brand/headshot.jpg",
+  "logo": "https://dlmorton1969.github.io/blog-feed/brand/logo-gold-600.png",
+  "description": "David L. Morton, Realtor and broker, helps buyers and sellers in Waxhaw, Weddington, Marvin, Ballantyne and Greater Charlotte, with a focus on luxury homes and personalized service.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Charlotte",
+    "addressRegion": "NC",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Waxhaw, NC"},
+    {"@type": "City", "name": "Weddington, NC"},
+    {"@type": "City", "name": "Marvin, NC"},
+    {"@type": "Place", "name": "Ballantyne, Charlotte, NC"},
+    {"@type": "City", "name": "Charlotte, NC"},
+    {"@type": "City", "name": "Matthews, NC"},
+    {"@type": "City", "name": "Indian Trail, NC"},
+    {"@type": "City", "name": "Fort Mill, SC"},
+    {"@type": "Place", "name": "Indian Land, SC"},
+    {"@type": "City", "name": "Rock Hill, SC"},
+    {"@type": "AdministrativeArea", "name": "Union County, NC"},
+    {"@type": "AdministrativeArea", "name": "Mecklenburg County, NC"},
+    {"@type": "AdministrativeArea", "name": "Lancaster County, SC"}
+  ],
+  "employee": {
+    "@type": "Person",
+    "name": "David L. Morton",
+    "jobTitle": "Realtor, Real Estate Broker, Owner"
+  },
+  "parentOrganization": {"@type": "Organization", "name": "Real Broker, LLC"}
+}
