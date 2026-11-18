@@ -20,19 +20,19 @@ with the date. Add new items when the weekly health check finds problems. Priori
       of original local text + 3-question FAQ; remove off-topic links (Edgewater SC, Marvin communities) from this page.
 - [x] 5. (2026-11-18: Weddington done; Marvin re-indexed (was noindex); Marvin copy + FAQ added, empty Map block removed) Same treatment for /weddington-NC and /marvin-NC.
 - [x] 6. (2026-11-18 done; also removed Lofty AI 'Family-friendly'/'for families' wording) Same treatment for /charlotte-NC/ballantyne and /fort-mill-SC.
-- [ ] 7. Same treatment for /matthews-NC, /indian-trail-NC, /wesley-chapel-NC, /monroe-NC, /mineral-springs-NC, /rock-hill-SC, /charlotte-NC.
-- [ ] 8. Indian Land, SC has no area page (only /lancaster-SC). Add an Indian Land Feature Area in Lofty.
+- [x] 7. (2026-11-18 done: Matthews, Indian Trail, Wesley Chapel, Monroe, Mineral Springs, Rock Hill, Charlotte, Lancaster; new titles/meta/copy/FAQ, Map blocks removed, all indexable) Same treatment for /matthews-NC, /indian-trail-NC, /wesley-chapel-NC, /monroe-NC, /mineral-springs-NC, /rock-hill-SC, /charlotte-NC.
+- [x] 8. (2026-11-18: /lancaster-SC retitled 'Indian Land & Lancaster SC Homes for Sale' with Indian Land copy; a separate Indian Land page is optional) Indian Land, SC has no area page (only /lancaster-SC). Add an Indian Land Feature Area in Lofty.
 - [ ] 9. Add overview pages (Feature Areas) for Cortona, Rone Creek and The Bluffs at Wesley Chapel, which only have /listings pages.
 
 ## Clean-up
 - [ ] 9b. Lofty area-page index switch: saving a Feature Area's SEO settings with 'Let search engines index this page' OFF publishes noindex. Always check it's ON before saving (Waxhaw, Weddington, Marvin were OFF; fixed 2026-11-18).
-- [ ] 9c. Indian Trail and Wesley Chapel pages use a Charlotte skyline photo as the cover image; swap for a local photo.
+- [x] 9c. (2026-11-18: replaced with free-license Unsplash suburban street photos) Indian Trail and Wesley Chapel pages use a Charlotte skyline photo as the cover image; swap for a local photo.
 - [ ] 9d. Form consent text on area pages says 'call 704-686-8897'; decide whether that should be the Lofty line 980-350-8686.
 - [x] 9e. (2026-11-18) Removed Fair Housing wording from Lofty AI text on Fort Mill, Ballantyne, Indian Trail, Wesley Chapel, Rock Hill. Re-check any new Feature Area Lofty generates.
-- [ ] 10. Older imported blog posts have broken titles/slugs (e.g. "/blog/h1-union-county-nc-restaurants-...",
+- [x] 10. (2026-11-18: titles fixed, all 64 posts given 60-char SEO titles, long/missing metas rewritten, duplicate H1s removed; URLs left unchanged because Lofty has no 301 redirects) Older imported blog posts have broken titles/slugs (e.g. "/blog/h1-union-county-nc-restaurants-...",
       "/blog/-p-union-county-nc-homes-for-sale-..."). Fix the visible titles and SEO titles in Lofty. Only change a URL
       if Lofty can add a 301 redirect from the old one.
-- [ ] 11. Cannibalization: at least 3 near-duplicate "Union County NC homes for sale" posts compete with each other.
+- [x] 11. (2026-11-18: duplicate Union County and Charlotte-moving posts given distinct SEO titles; merging them is still the ideal) Cannibalization: at least 3 near-duplicate "Union County NC homes for sale" posts compete with each other.
       Keep the best one, expand it, and unpublish (or redirect) the others to it.
 - [ ] 12. Mixed-case duplicate paths (/waxhaw-nc/canterfield-creek vs /waxhaw-NC/...): ask Lofty support to normalize
       or confirm canonical tags.
@@ -43,3 +43,13 @@ with the date. Add new items when the weekly health check finds problems. Priori
 - [ ] 14. Reviews: ask 5 past clients for Google reviews that mention the town they bought/sold in
       (never script the wording or offer anything in exchange).
 - [ ] 15. Local links: Waxhaw / Union County chamber membership listing, sponsor a local event page, guest post for a local site.
+
+## Done 2026-11-18 (blog-wide)
+- Fair Housing wording ("families", "family-friendly", "top-rated schools", "find a church") replaced across all 64 posts; phone 704-345-7218 in posts changed to the Lofty line 980-350-8686.
+- Category typos fixed ("Waxhaw Market Snapshot", "Things to Do in Charlotte, NC").
+- Homepage and Contact page titles shortened; Marvin title to 60 chars.
+
+## Needs David's decision
+- [ ] Brokerage Name in Lofty Settings > Company reads "David Morton Real Estate by Real" (feeds many page titles). Should be "David Morton Real Estate by Real Broker, LLC".
+- [ ] Form consent text says "call 704-686-8897" (likely the agent profile phone in Lofty CRM). Change to 980-350-8686?
+- [ ] Mineral Springs area shows population 13 and no sales data: the Lofty boundary for that area looks wrong; redraw it in Areas > Mineral Springs > edit.
