@@ -77,5 +77,7 @@ He represents buyers and sellers, with a focus on luxury homes and personalized 
 - `keyword-map.csv` — every target keyword with its town, category, priority (1 = core market), the area page it
   must link to, and the date it was used. Add rows freely; never clear a `used_on` date.
 - `seo_check.py` — `next` / `check` / `mark` (see its docstring).
-- `rank-log.csv` — written by the weekly SEO autopilot: date, keyword, whether DavidMortonSoldIt.com showed in the
+- `rank-log.csv` — for an optional weekly SEO autopilot (not set up yet): date, keyword, whether DavidMortonSoldIt.com showed in the
   web results checked, and the best position seen. It's a rough spot check, not a rank tracker.
+- `backlog.md` — prioritized on-page and off-site SEO to-do list (mirrored in David's SEO Machine Command Center doc).
+- `schema-realestateagent.json` — RealEstateAgent business schema for the site header.
