@@ -18,7 +18,7 @@ with the date. Add new items when the weekly health check finds problems. Priori
 - [x] 4. (2026-11-18 done: title/meta, new copy + FAQ, empty Map block removed. H1 is a locked template field; the Commute 'Coming Soon' tile is in a locked Lofty block) /waxhaw-NC: SEO title "Waxhaw NC Homes for Sale & Real Estate | David Morton" (52); meta description under
       155 chars; H1 "Waxhaw, NC Homes for Sale"; remove/hide the "Coming Soon" and "No Data" sections; add 300+ words
       of original local text + 3-question FAQ; remove off-topic links (Edgewater SC, Marvin communities) from this page.
-- [x] 5. (2026-11-18: Weddington done; Marvin re-indexed (was noindex). Marvin page copy still to add from the Fix Kit) Same treatment for /weddington-NC and /marvin-NC.
+- [x] 5. (2026-11-18: Weddington done; Marvin re-indexed (was noindex); Marvin copy + FAQ added, empty Map block removed) Same treatment for /weddington-NC and /marvin-NC.
 - [x] 6. (2026-11-18 done; also removed Lofty AI 'Family-friendly'/'for families' wording) Same treatment for /charlotte-NC/ballantyne and /fort-mill-SC.
 - [ ] 7. Same treatment for /matthews-NC, /indian-trail-NC, /wesley-chapel-NC, /monroe-NC, /mineral-springs-NC, /rock-hill-SC, /charlotte-NC.
 - [ ] 8. Indian Land, SC has no area page (only /lancaster-SC). Add an Indian Land Feature Area in Lofty.
