@@ -50,6 +50,6 @@ with the date. Add new items when the weekly health check finds problems. Priori
 - Homepage and Contact page titles shortened; Marvin title to 60 chars.
 
 ## Needs David's decision
-- [ ] Brokerage Name in Lofty Settings > Company reads "David Morton Real Estate by Real" (feeds many page titles). Should be "David Morton Real Estate by Real Broker, LLC".
-- [ ] Form consent text says "call 704-686-8897" (likely the agent profile phone in Lofty CRM). Change to 980-350-8686?
+- [x] Brokerage Name in Lofty Settings > Company: David decided 2026-11-18 to leave "David Morton Real Estate by Real" as is. Do not change.
+- [ ] Form consent text says "call 704-686-8897". David wants 980-350-8686. Source: Lofty fills #phone_number# in the locked default disclaimer with the Personal Virtual Number (704-686-8897) from CRM Settings > Call & Text > My Numbers; default call/text IDs are already 980-350-8686. No CMS setting changes it; needs Lofty support to map it to the Company number.
 - [ ] Mineral Springs area shows population 13 and no sales data: the Lofty boundary for that area looks wrong; redraw it in Areas > Mineral Springs > edit.
