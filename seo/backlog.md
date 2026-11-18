@@ -27,7 +27,7 @@ with the date. Add new items when the weekly health check finds problems. Priori
 ## Clean-up
 - [ ] 9b. Lofty area-page index switch: saving a Feature Area's SEO settings with 'Let search engines index this page' OFF publishes noindex. Always check it's ON before saving (Waxhaw, Weddington, Marvin were OFF; fixed 2026-11-18).
 - [x] 9c. (2026-11-18: replaced with free-license Unsplash suburban street photos) Indian Trail and Wesley Chapel pages use a Charlotte skyline photo as the cover image; swap for a local photo.
-- [ ] 9d. Form consent text on area pages says 'call 704-686-8897'; decide whether that should be the Lofty line 980-350-8686.
+- [x] 9d. Consent phone: leave as is (David, 2026-11-18).
 - [x] 9e. (2026-11-18) Removed Fair Housing wording from Lofty AI text on Fort Mill, Ballantyne, Indian Trail, Wesley Chapel, Rock Hill. Re-check any new Feature Area Lofty generates.
 - [x] 10. (2026-11-18: titles fixed, all 64 posts given 60-char SEO titles, long/missing metas rewritten, duplicate H1s removed; URLs left unchanged because Lofty has no 301 redirects) Older imported blog posts have broken titles/slugs (e.g. "/blog/h1-union-county-nc-restaurants-...",
       "/blog/-p-union-county-nc-homes-for-sale-..."). Fix the visible titles and SEO titles in Lofty. Only change a URL
