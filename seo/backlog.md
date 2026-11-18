@@ -51,5 +51,5 @@ with the date. Add new items when the weekly health check finds problems. Priori
 
 ## Needs David's decision
 - [x] Brokerage Name in Lofty Settings > Company: David decided 2026-11-18 to leave "David Morton Real Estate by Real" as is. Do not change.
-- [ ] Form consent text says "call 704-686-8897". David wants 980-350-8686. Source: Lofty fills #phone_number# in the locked default disclaimer with the Personal Virtual Number (704-686-8897) from CRM Settings > Call & Text > My Numbers; default call/text IDs are already 980-350-8686. No CMS setting changes it; needs Lofty support to map it to the Company number.
+- [x] Form consent text phone (704-686-8897, Lofty Personal Virtual Number): David decided 2026-11-18 to leave all numbers as they are. Do not change.
 - [ ] Mineral Springs area shows population 13 and no sales data: the Lofty boundary for that area looks wrong; redraw it in Areas > Mineral Springs > edit.
