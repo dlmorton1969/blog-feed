@@ -19,9 +19,17 @@ Market: Waxhaw, NC and Greater Charlotte. Service areas: Waxhaw, Charlotte, Wedd
 Matthews, Ballantyne, Union County, Mecklenburg County, Fort Mill, Indian Land, Rock Hill, Lancaster County.
 He represents buyers and sellers, with a focus on luxury homes and personalized service.
 
-1. Topic rotation: look at the titles/tags in `posts/` and pick the category and town used least recently.
-   Categories: (a) local market update, (b) neighborhood & lifestyle guide, (c) buyer or seller tips,
-   (d) luxury home focus. Never repeat a title or angle.
+1. Topic = keyword (SEO engine). Run `python3 seo/seo_check.py next`. It picks today's target keyword
+   from `seo/keyword-map.csv` (priority towns first, rotating town and category, never a keyword already
+   used, so posts don't compete with each other in Google). Write the post AROUND that exact keyword:
+   - Add `keyword: <the keyword, exactly>` to the header, and put the town first and the category second in `tags:`.
+   - Title (under 60 chars) contains the town and the keyword's main idea; use the phrase naturally in the
+     first two paragraphs and work the town into at least one <h2>.
+   - Link the area page `target_url` within the first 3 paragraphs with descriptive anchor text
+     (e.g. "homes for sale in Marvin"), and link `support_url` too. At least 3 distinct DavidMortonSoldIt.com links in total.
+   - Where it fits, link 1 earlier post from this repo's feed by its live title on DavidMortonSoldIt.com/blog only if you know the URL; never guess URLs.
+   - Slug: lowercase words with single hyphens, under 60 chars, keyword-led (e.g. `marvin-nc-homes-for-sale-guide`).
+   If David asks for a specific topic, use the closest unused keyword, or add a new row to the map first.
 2. Research with web search. Every number (prices, days on market, inventory, rates) must come from a
    source retrieved in this run (Canopy MLS / Canopy Realtor Association, Redfin, Realtor.com, NAR,
    Freddie Mac, official town/county sites). Name the source and month in the text and link it.
@@ -59,5 +67,15 @@ He represents buyers and sellers, with a focus on luxury homes and personalized 
 6. Self-check before committing: every number matches its source; only 980-350-8686 appears; Fair Housing
    rules pass; title/description lengths; brokerage line present. If anything fails, fix it. If you can't
    produce a post that passes, commit nothing and tell David.
-7. Save as `posts/<today's date ET>-<slug>.html`, run `python3 make_card.py` on it, then `python3 build_feed.py`, commit
-   ("Post: <title>") and push to `main`.
+   Then run `python3 seo/seo_check.py check posts/<file>.html`. Every FAIL must be fixed before committing;
+   fix warnings too unless doing so would make the writing awkward.
+7. Save as `posts/<today's date ET>-<slug>.html`, run `python3 make_card.py` on it, then `python3 build_feed.py`,
+   then `python3 seo/seo_check.py mark posts/<file>.html`, commit ("Post: <title>", including seo/keyword-map.csv)
+   and push to `main`.
+
+## SEO engine files (seo/)
+- `keyword-map.csv` — every target keyword with its town, category, priority (1 = core market), the area page it
+  must link to, and the date it was used. Add rows freely; never clear a `used_on` date.
+- `seo_check.py` — `next` / `check` / `mark` (see its docstring).
+- `rank-log.csv` — written by the weekly SEO autopilot: date, keyword, whether DavidMortonSoldIt.com showed in the
+  web results checked, and the best position seen. It's a rough spot check, not a rank tracker.
