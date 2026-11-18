@@ -175,6 +175,9 @@ def main() -> None:
 </rss>
 """
     (out_dir / "simple.xml").write_text(simple, encoding="utf-8")
+    # feed.rss: same as simple.xml, but GitHub Pages serves .rss as application/rss+xml
+    # (it serves .xml as application/xml, which some importers reject).
+    (out_dir / "feed.rss").write_text(simple, encoding="utf-8")
     # rss.xml is the address Lofty uses; feed.xml is kept as an identical copy.
     (out_dir / "feed.xml").write_text(feed, encoding="utf-8")
     (out_dir / "rss.xml").write_text(feed.replace(f"{SITE_URL}/feed.xml", f"{SITE_URL}/rss.xml"), encoding="utf-8")
